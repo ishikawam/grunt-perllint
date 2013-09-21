@@ -28,11 +28,17 @@ Task targets, files and options may be specified according to the grunt [Configu
 ### Options
 
 
-#### debug
+#### warning
 Type: `Boolean`
 Default: `true`
 
 output warnings (use -wc option.)
+
+#### debug
+Type: `Boolean`
+Default: `false`
+
+output log.
 
 
 ### Usage Examples

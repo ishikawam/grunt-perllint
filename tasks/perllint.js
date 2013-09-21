@@ -16,7 +16,8 @@ module.exports = function(grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      debug: true,
+      warning: true,
+      debug: false,
     });
 
     var count = 0;
@@ -36,12 +37,15 @@ module.exports = function(grunt) {
           var regex = new RegExp(escapeRegExp(path.basename(srcFile)) + "$");
 
           var cmd = 'perl ';
-          if (options.debug === true) {
+          if (options.warning === true) {
             cmd += '-wc ';
           } else {
             cmd += '-c ';
           }
           cmd += srcFile;
+          if (options.debug === true) {
+            grunt.log.writeln(cmd);
+          }
 
           grunt.verbose.writeln('Exec: ' + cmd);
 
